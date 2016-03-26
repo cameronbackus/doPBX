@@ -6,9 +6,9 @@ This assumes that you choose a CentOS 7 Droplet of any size and that SELinux is 
 
 ## To get started
 
-1) '''bash wget https://github.com/cameronbackus/doPBX/raw/master/install_freepbx.sh '''
+1) wget https://github.com/cameronbackus/doPBX/raw/master/install_freepbx.sh
 
-2) '''bash sh install_freepbx.sh '''
+2) sh install_freepbx.sh
 
 3) Enter in options for MariaDB (no root password)
 
