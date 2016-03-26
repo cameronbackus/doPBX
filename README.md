@@ -6,7 +6,7 @@ This assumes that you choose a CentOS 7 Droplet of any size and that SELinux is 
 
 ## To get started
 
-1) wget https://github.com/cameronbackus/doPBX/raw/master/install_freepbx.sh
+1) wget http://www.backusgroup.net/freepbx/install.sh (or the install.sh in this repo)
 
 2) sh install_freepbx.sh
 
