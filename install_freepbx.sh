@@ -6,7 +6,10 @@ pear install Console_Getopt
 firewall-cmd --zone=public --add-port=80/tcp --permanent
 firewall-cmd --reload
 
+# Enable MariaDB
 systemctl enable mariadb.service
+
+# Start MariaDB
 systemctl start mariadb
 
 mysql_secure_installation
@@ -16,6 +19,7 @@ systemctl start httpd.service
 
 adduser asterisk -M -c "Asterisk User"
 
+# Download Asterisk
 cd /usr/src
 wget http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-current.tar.gz
 wget http://downloads.asterisk.org/pub/telephony/libpri/libpri-1.4-current.tar.gz
@@ -42,6 +46,7 @@ autoreconf -i
 make
 make install
 
+# Install Asterisk
 cd /usr/src
 tar xvfz asterisk-13-current.tar.gz
 rm -f asterisk-13-current.tar.gz
@@ -57,6 +62,7 @@ make config
 ldconfig
 chkconfig asterisk off
 
+# Download Asterisk Sounds
 cd /var/lib/asterisk/sounds
 wget http://downloads.asterisk.org/pub/telephony/sounds/asterisk-core-sounds-en-wav-current.tar.gz
 wget http://downloads.asterisk.org/pub/telephony/sounds/asterisk-extra-sounds-en-wav-current.tar.gz
@@ -64,6 +70,7 @@ tar xvf asterisk-core-sounds-en-wav-current.tar.gz
 rm -f asterisk-core-sounds-en-wav-current.tar.gz
 tar xfz asterisk-extra-sounds-en-wav-current.tar.gz
 rm -f asterisk-extra-sounds-en-wav-current.tar.gz
+
 # Wideband Audio download
 wget http://downloads.asterisk.org/pub/telephony/sounds/asterisk-core-sounds-en-g722-current.tar.gz
 wget http://downloads.asterisk.org/pub/telephony/sounds/asterisk-extra-sounds-en-g722-current.tar.gz
@@ -83,6 +90,7 @@ sed -i 's/^\(User\|Group\).*/\1 asterisk/' /etc/httpd/conf/httpd.conf
 sed -i 's/AllowOverride None/AllowOverride All/' /etc/httpd/conf/httpd.conf
 systemctl restart httpd.service
 
+# Install FreePBX
 cd /usr/src
 wget http://mirror.freepbx.org/modules/packages/freepbx/freepbx-13.0-latest.tgz
 tar xfz freepbx-13.0-latest.tgz
