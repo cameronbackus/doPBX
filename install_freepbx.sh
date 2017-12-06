@@ -98,3 +98,25 @@ rm -f freepbx-13.0-latest.tgz
 cd freepbx
 ./start_asterisk start
 ./install -n
+
+#Systemd service creation
+cat > /etc/systemd/system/freepbx.service << EOF
+[Unit]
+Description=FreePBX VoIP Server
+After=mariadb.service
+ 
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/fwconsole start
+ExecStop=/usr/sbin/fwconsole stop
+ 
+[Install]
+WantedBy=multi-user.target
+EOF
+
+#Enable service to start automatically
+systemctl enable freepbx.service
+
+#Start service
+systemctl start freepbx
