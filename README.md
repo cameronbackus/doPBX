@@ -1,4 +1,6 @@
-# Pre-requisites
+Find YouTube Video here: https://youtu.be/A6mxdvIMLEc
+
+## Pre-requisites
 - SELinux is Disabled (it is in DigitalOcean by default)
 - A CentOS 7 droplet (of any size)
 
