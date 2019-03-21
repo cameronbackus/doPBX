@@ -52,7 +52,7 @@ tar xvfz asterisk-13-current.tar.gz
 rm -f asterisk-13-current.tar.gz
 cd asterisk-*
 contrib/scripts/install_prereq install
-./configure --libdir=/usr/lib64
+./configure --libdir=/usr/lib64 --with-pjproject-bundled --with-jansson-bundled
 contrib/scripts/get_mp3_source.sh
 make menuselect
 
