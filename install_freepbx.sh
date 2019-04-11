@@ -25,7 +25,8 @@ wget http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linu
 wget http://downloads.asterisk.org/pub/telephony/libpri/libpri-current.tar.gz
 wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-13-current.tar.gz
 wget -O jansson.tar.gz https://github.com/akheron/jansson/archive/v2.7.tar.gz
-wget http://www.pjsip.org/release/2.4/pjproject-2.4.tar.bz2
+## Instead get bundled pj (--with-pjproject-bundled) to avoid : make[1]: *** [res_pjsip/config_transport.o] Error 1 
+##wget http://www.pjsip.org/release/2.4/pjproject-2.4.tar.bz2
 
 cd /usr/src
 tar -xjvf pjproject-2.4.tar.bz2
@@ -52,7 +53,8 @@ tar xvfz asterisk-13-current.tar.gz
 rm -f asterisk-13-current.tar.gz
 cd asterisk-*
 contrib/scripts/install_prereq install
-./configure --libdir=/usr/lib64
+### Add pjproject bundled
+./configure --libdir=/usr/lib64 --with-pjproject-bundled
 contrib/scripts/get_mp3_source.sh
 make menuselect
 
