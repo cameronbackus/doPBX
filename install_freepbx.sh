@@ -55,6 +55,7 @@ contrib/scripts/install_prereq install
 ./configure --libdir=/usr/lib64
 contrib/scripts/get_mp3_source.sh
 make menuselect
+./configure --with-pjproject-bundled
 
 make
 make install
